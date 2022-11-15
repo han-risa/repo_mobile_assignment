@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String changeValue = "";
   double _value = 1;
   int _currentSliderValue = 1;
-  TextEditingController sliderController = TextEditingController();
+  final sliderController = TextEditingController();
 
   List<String> listViewItem = <String>[];
 
@@ -57,6 +57,20 @@ class _MyHomePageState extends State<MyHomePage> {
     "Kelvin",
     "Reamur",
   ];
+
+  @override
+  void initState() {
+    super.initState();
+
+    sliderController.addListener(_setStartValue);
+  }
+
+  _setStartValue() {
+    setState(() {
+      _value = double.parse(sliderController.text).roundToDouble();
+    });
+  }
+
   void perhitunganSuhu() {
     String satuan, hasil;
     setState(() {
