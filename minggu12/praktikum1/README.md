@@ -1,5 +1,3 @@
-# konverter_suhu_2
-
 # BAB 4
 # Praktikum Minggu 12
 
